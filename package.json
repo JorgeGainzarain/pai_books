@@ -1,0 +1,21 @@
+{
+  "name": "Books",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc && node dist/index.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.0.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/mysql": "^2.15.26",
+    "typescript": "^5.5.3"
+  },
+  "private": true
+}

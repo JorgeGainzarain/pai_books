@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books List</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .books-list, .add-book-form {
+            width: 45%;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+        }
+        li {
+            margin-bottom: 20px; /* Add space between books */
+        }
+        .add-book-form div {
+            margin-bottom: 15px; /* Add space between form fields */
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <form action="/books" method="GET">
+            <input type="text" name="q" placeholder="Search for a book" required>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    <div class="content">
+        <div class="books-list">
+            <h1>Books List</h1>
+            <ul>
+                <% books.forEach(function(book) { %>
+                    <li>
+                        <strong>Title:</strong> <%= book.title %><br>
+                        <strong>Author:</strong> <%= book.author %><br>
+                        <strong>Year:</strong> <%= book.year %>
+                    </li>
+                <% }); %>
+            </ul>
+        </div>
+        <div class="add-book-form">
+            <h1>Add a New Book</h1>
+            <form action="/books" method="POST">
+                <div>
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div>
+                    <label for="author">Author:</label>
+                    <input type="text" id="author" name="author" required>
+                </div>
+                <div>
+                    <label for="year">Year:</label>
+                    <input type="number" id="year" name="year" required>
+                </div>
+                <button type="submit">Add Book</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
